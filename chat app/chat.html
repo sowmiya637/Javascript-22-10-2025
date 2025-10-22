@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title> Simple Chat (Local)</title>
+</head>
+<body>
+  <h2> Local Chat Simulation</h2>
+  <textarea id="chat" rows="10" cols="40" readonly></textarea><br>
+  <input id="msg" placeholder="Type a message">
+  <button onclick="send()">Send</button>
+
+  <script>
+    const chat = document.getElementById('chat');
+    const messages = [];
+
+    function send() {
+      const msg = document.getElementById('msg').value;
+      messages.push("You: " + msg);
+      messages.push("Bot: " + msg.split('').reverse().join('')); // fake response
+      chat.value = messages.join('\n');
+      document.getElementById('msg').value = '';
+    }
+  </script>
+</body>
+</html>
